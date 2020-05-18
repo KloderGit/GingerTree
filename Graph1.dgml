@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="037eaeb5-9d1b-4454-ba4f-4300489ec9b11" Bounds="215,-100,84.4366666666667,25.96" Label="Новый узел" UseManualLocation="True" />
+    <Node Id="f997a6fe-4e64-4547-a3b3-bd4a0bfd0f4b1" Bounds="0,0,84.4366666666667,25.96" Label="Новый узел" />
+  </Nodes>
+  <Links>
+    <Link Source="f997a6fe-4e64-4547-a3b3-bd4a0bfd0f4b1" Target="037eaeb5-9d1b-4454-ba4f-4300489ec9b11" Bounds="70.1253333333333,-70.2444232525597,151.025509993003,70.2444232525597" />
+  </Links>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="Label" Label="Метка" Description="Отображаемая метка аннотируемого объекта" DataType="System.String" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+  </Properties>
+</DirectedGraph>

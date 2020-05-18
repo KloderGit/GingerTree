@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Core.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Database.Domain
 {
-    public class Map
+    public class Map : ITree<Map>
     {
         public int Id { get; set; }
 
@@ -12,7 +13,7 @@ namespace Database.Domain
 
         public int Order { get; set; }
 
-        public virtual ICollection<Map> Children { get; set; }
+        public virtual ICollection<Map> Children { get; set; } = new List<Map>();
 
         public int NodeId { get; set; }
         public virtual Node Node { get; set; }

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Core.Domain.Interfaces
 {
-    public interface ITree: IComponent
+    public interface ITree<T>: IComponent<T>
     {
-        ICollection<IComponent> Children { get; set; }
+        ICollection<T> Children { get; set; }
     }
 }

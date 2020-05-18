@@ -1,7 +1,6 @@
-﻿using Core.Domain;
-using Core.Domain.Interfaces;
+﻿using Database.Domain;
+using Database.EntityFramework;
 using System;
-using System.Collections.Generic;
 
 namespace SandBox
 {
@@ -9,59 +8,117 @@ namespace SandBox
     {
         static void Main(string[] args)
         {
-            var module = new Module
+            var node1 = new Node
             {
-                Id = 123,
                 IsActive = true,
                 IsDraft = false,
                 Key = Guid.NewGuid(),
-                Order = 1,
-                Parent = null,
-                Title = "Personal Trener",
-                Children = new List<IComponent>()
+                Title = "Personal trener",
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
             };
 
-
-            var item = new Element
+            var node2 = new Node
             {
-                Id = 34534534,
                 IsActive = true,
                 IsDraft = false,
                 Key = Guid.NewGuid(),
-                Order = 1,
-                Parent = module,
-                Title = "for Person trener"
-            };
-
-            module.Children.Add(item);
-
-
-            var module2 = new Module
-            {
-                Id = 333,
-                IsActive = true,
-                IsDraft = false,
-                Key = Guid.NewGuid(),
-                Order = 1,
-                Parent = module,
                 Title = "Instructor",
-                Children = new List<IComponent>()
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
             };
 
-            module.Children.Add(module2);
-
-            var item2 = new Element
+            var node3 = new Node
             {
-                Id = 75673,
                 IsActive = true,
                 IsDraft = false,
                 Key = Guid.NewGuid(),
-                Order = 1,
-                Parent = module2,
-                Title = "for Instructor"
+                Title = "Anatomy",
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
             };
 
-            module2.Children.Add(item2);
+            var node4 = new Node
+            {
+                IsActive = true,
+                IsDraft = false,
+                Key = Guid.NewGuid(),
+                Title = "Fiziology",
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
+            };
+
+            var node5 = new Node
+            {
+                IsActive = true,
+                IsDraft = false,
+                Key = Guid.NewGuid(),
+                Title = "Attestation",
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
+            };
+
+
+            var map1 = new Map()
+            {
+                Order = 1,
+                Node = node1,
+                NodeId = node1.Id,
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
+            };
+
+
+
+            var map2 = new Map()
+            {
+                Order = 1,
+                Node = node2,
+                NodeId = node2.Id,
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
+            };
+            map1.Children.Add(map2);
+
+            var map3 = new Map()
+            {
+                Order = 1,
+                Node = node3,
+                NodeId = node3.Id,
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
+            };
+            map2.Children.Add(map3);
+
+            var map4 = new Map()
+            {
+                Order = 1,
+                Node = node4,
+                NodeId = node4.Id,
+                Parent = map2,
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
+            };
+            map2.Children.Add(map4);
+
+            var map5 = new Map()
+            {
+                Order = 1,
+                Node = node5,
+                NodeId = node5.Id,
+                Parent = map1,
+                Created = DateTimeOffset.Now,
+                Modified = DateTimeOffset.Now
+            };
+            map1.Children.Add(map5);
+
+
+            var db = new ApplicationContext();
+
+            db.Structure.Add(map1);
+
+            //db.SaveChanges();
+
 
             Console.WriteLine("Hello World!");
         }

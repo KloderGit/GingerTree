@@ -1,7 +1,4 @@
-﻿using Core.Interface;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace Core.Domain
 {
@@ -13,5 +10,8 @@ namespace Core.Domain
         public string Title { get; set; }
         public bool IsActive { get; set; }
         public bool IsDraft { get; set; }
+
+        public DateTimeOffset Created { get; set; }
+        public DateTimeOffset Modified { get; set; }
     }
 }

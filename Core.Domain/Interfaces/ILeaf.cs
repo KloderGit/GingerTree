@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Core.Domain.Interfaces
 {
-    public interface ILeaf : IComponent
+    public interface ILeaf<T> : IComponent<T>
     {
 
     }

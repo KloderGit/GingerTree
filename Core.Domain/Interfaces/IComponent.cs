@@ -5,8 +5,13 @@ using System.Text;
 namespace Core.Domain.Interfaces
 {
     public interface IComponent
+    { 
+    
+    }
+
+    public interface IComponent<T> : IComponent
     {
-        IComponent Parent { get; set; }
+        T Parent { get; set; }
         int Order { get; set; }
     }
 }

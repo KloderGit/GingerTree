@@ -1,11 +1,11 @@
 ﻿using Core.Domain;
 using System;
+using System.Collections.Generic;
 
 namespace Database.Domain
 {
     public class Node : Base
     {
-        public DateTimeOffset Created { get; set; }
-        public DateTimeOffset Modified { get; set; }
+        public virtual ICollection<Map> Maps { get; set; }
     }
 }

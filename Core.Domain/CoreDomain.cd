@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Core.Domain.Module">
+    <Position X="4.25" Y="5.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Module.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Domain.Element">
+    <Position X="7.25" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Element.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Domain.Base">
+    <Position X="6" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAEQAEBAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Base.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Core.Domain.Interfaces.IComponent">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IComponent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Domain.Interfaces.IComponent&lt;T&gt;">
+    <Position X="11.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IComponent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Domain.Interfaces.ILeaf&lt;T&gt;">
+    <Position X="10.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ILeaf.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Domain.Interfaces.ITree&lt;T&gt;">
+    <Position X="12.25" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITree.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,28 @@
+﻿<Window x:Class="Wpf.GingerTree.AddElementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.GingerTree"
+        mc:Ignorable="d"
+        Title="AddElementWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="223*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <TextBox Name="Title" HorizontalAlignment="Left" Margin="10,34,0,0" TextWrapping="Wrap" Width="600" Height="39" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock Text="Название Мероприятия" TextWrapping="Wrap" Margin="10,15,597,53"/>
+        <Button IsDefault="True" Content="Save" HorizontalAlignment="Left" Margin="679,0,0,0" Grid.Row="3" VerticalAlignment="Center" Height="23" Width="111" Background="#FFADEE88" Click="Button_Click_1"/>
+        <Button IsCancel="True" Content="Del" HorizontalAlignment="Left" Margin="556,0,0,0" Grid.Row="3" VerticalAlignment="Center" Height="23" Width="111"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="462,35,0,0" Grid.Row="1" VerticalAlignment="Top" Height="23" Width="96" Click="Button_Click"/>
+        <TextBox Name="Key" Text="Название" TextWrapping="Wrap" Margin="10,35,597,23" Grid.Row="1"/>
+        <TextBlock Text="Добавить параметр" TextWrapping="Wrap" Margin="10,11,597,51" Grid.Row="1"/>
+        <TextBox Name="Value" Text="Значение" TextWrapping="Wrap" Margin="222,35,385,23" Grid.Row="1"/>
+        <WrapPanel x:Name="ParamsPanel" Grid.Row="1" Margin="10,81,10,0" Grid.RowSpan="2"/>
+
+
+    </Grid>
+</Window>

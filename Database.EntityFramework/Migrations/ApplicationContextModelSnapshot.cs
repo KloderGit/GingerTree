@@ -29,6 +29,15 @@ namespace Database.EntityFramework.Migrations
                     b.Property<DateTimeOffset>("Created")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsArchived")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsDraft")
+                        .HasColumnType("boolean");
+
                     b.Property<DateTimeOffset>("Modified")
                         .HasColumnType("timestamp with time zone");
 
@@ -47,7 +56,7 @@ namespace Database.EntityFramework.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("Structure","Domain");
+                    b.ToTable("Maps","Domain");
                 });
 
             modelBuilder.Entity("Database.Domain.Node", b =>
@@ -61,6 +70,9 @@ namespace Database.EntityFramework.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsArchived")
                         .HasColumnType("boolean");
 
                     b.Property<bool>("IsDraft")
@@ -77,7 +89,53 @@ namespace Database.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Items","Domain");
+                    b.ToTable("Nodes","Domain");
+                });
+
+            modelBuilder.Entity("Database.Domain.Payload", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<DateTimeOffset>("Created")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsArchived")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsDraft")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("Key")
+                        .HasColumnType("uuid");
+
+                    b.Property<int?>("MapId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTimeOffset>("Modified")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<int>("NodeId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MapId");
+
+                    b.HasIndex("NodeId");
+
+                    b.ToTable("Payloads","Domain");
                 });
 
             modelBuilder.Entity("Database.Domain.Map", b =>
@@ -91,6 +149,19 @@ namespace Database.EntityFramework.Migrations
                     b.HasOne("Database.Domain.Map", "Parent")
                         .WithMany("Children")
                         .HasForeignKey("ParentId");
+                });
+
+            modelBuilder.Entity("Database.Domain.Payload", b =>
+                {
+                    b.HasOne("Database.Domain.Map", "Map")
+                        .WithMany("Payloads")
+                        .HasForeignKey("MapId");
+
+                    b.HasOne("Database.Domain.Node", "Node")
+                        .WithMany("Payloads")
+                        .HasForeignKey("NodeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

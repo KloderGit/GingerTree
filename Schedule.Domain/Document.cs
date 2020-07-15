@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core.Domain.Interfaces
+namespace Schedule.Domain
 {
-    public interface ILeaf<T> : IComponent<T>
+    public class Document
     {
-
     }
 }

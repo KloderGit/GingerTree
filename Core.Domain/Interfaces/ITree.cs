@@ -6,6 +6,7 @@ namespace Core.Domain.Interfaces
 {
     public interface ITree<T>: IComponent<T>
     {
-        ICollection<T> Children { get; set; }
+        IEnumerable<T> GetChildren();
+        void AddChild(T child);
     }
 }

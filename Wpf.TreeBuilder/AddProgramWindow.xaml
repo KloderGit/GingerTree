@@ -1,0 +1,14 @@
+﻿<Window x:Class="Wpf.TreeBuilder.AddProgramWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.TreeBuilder"
+        mc:Ignorable="d"
+        Title="AddProgramWindow" Height="450" Width="800">
+    <Grid>
+        <local:AddEvent x:Name="AddEvent" Margin="0,0,0,56"/>
+        <Button IsCancel="True" Content="Cancel" HorizontalAlignment="Left" Margin="536,395,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button IsDefault="True" Content="Save" HorizontalAlignment="Left" Margin="640,395,0,0" VerticalAlignment="Top" Width="79" Background="#FFCCF06B" Click="Button_Click"/>
+    </Grid>
+</Window>

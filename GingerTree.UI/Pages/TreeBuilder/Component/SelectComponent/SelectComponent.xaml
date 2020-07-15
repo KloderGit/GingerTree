@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="GingerTree.UI.Pages.TreeBuilder.Component.SelectComponent.SelectComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GingerTree.UI.Pages.TreeBuilder.Component.SelectComponent" xmlns:searchfield="clr-namespace:GingerTree.UI.Components.SearchField"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="350">
+    <Grid x:Name="SelectorContainer">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <searchfield:SearchField/>
+
+        <TabControl Grid.Row="1" Background="{x:Null}">
+            <TabItem Header="OOOOO" Background="{x:Null}">
+                <Grid Margin="15">
+                    <AdornerDecorator>
+                        <ListBox x:Name="Elements_Listbox" ItemsSource="{Binding Elements}" Background="{x:Null}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Label Content="{Binding Title.Value}"/>
+                                        <Label Content="{Binding FormatType.Value}"/>
+                                        <Label Content="{Binding PropertiesCount}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </AdornerDecorator>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Коллекция" Background="{x:Null}">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+        <Popup x:Name="popup1" StaysOpen="False" Placement="Right" PlacementTarget="{Binding ElementName=SelectorContainer}" Height="Auto" Grid.RowSpan="2" >
+            <Grid Background="#FFE9FDFF">
+                <TextBlock TextWrapping="Wrap" Width="180" Background="LightPink" Opacity="0.8" >
+                        Чтобы узнать больше, посетите сайт metanit.com
+                </TextBlock>
+
+            </Grid>
+        </Popup>
+
+    </Grid>
+</UserControl>

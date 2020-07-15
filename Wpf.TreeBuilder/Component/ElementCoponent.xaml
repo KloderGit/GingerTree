@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Wpf.TreeBuilder.Component.ElementCoponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf.TreeBuilder.Component"
+             mc:Ignorable="d" 
+             d:DesignHeight="59.468" d:DesignWidth="278.994">
+    <Grid>
+        <StackPanel>
+            <Label x:Name="ElementTitle" Content="{Binding Title}" Margin="5"/>
+            <WrapPanel Name="ParamsPanel"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

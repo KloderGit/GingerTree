@@ -1,6 +1,12 @@
-﻿using Database.Domain;
+﻿using Core.Domain;
+using Database.Domain;
 using Database.EntityFramework;
+using Database.EntityFramework.Extensions;
+using Microsoft.EntityFrameworkCore;
+using Schedule.Domain;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SandBox
 {
@@ -8,116 +14,33 @@ namespace SandBox
     {
         static void Main(string[] args)
         {
-            var node1 = new Node
-            {
-                IsActive = true,
-                IsDraft = false,
-                Key = Guid.NewGuid(),
-                Title = "Personal trener",
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
 
-            var node2 = new Node
-            {
-                IsActive = true,
-                IsDraft = false,
-                Key = Guid.NewGuid(),
-                Title = "Instructor",
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
+            //var sdfsdf = new CreateAndReadDB();
 
-            var node3 = new Node
-            {
-                IsActive = true,
-                IsDraft = false,
-                Key = Guid.NewGuid(),
-                Title = "Anatomy",
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
+            //var rrr = sdfsdf.Read();
 
-            var node4 = new Node
-            {
-                IsActive = true,
-                IsDraft = false,
-                Key = Guid.NewGuid(),
-                Title = "Fiziology",
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
-
-            var node5 = new Node
-            {
-                IsActive = true,
-                IsDraft = false,
-                Key = Guid.NewGuid(),
-                Title = "Attestation",
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
-
-
-            var map1 = new Map()
-            {
-                Order = 1,
-                Node = node1,
-                NodeId = node1.Id,
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
+            //var fsdf = Schedule.Domain.Schedule.Create(rrr.First() as Structure);
 
 
 
-            var map2 = new Map()
-            {
-                Order = 1,
-                Node = node2,
-                NodeId = node2.Id,
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
-            map1.Children.Add(map2);
+            var elelment1 = new Element("Personal trener") { Params = new List<Param> { new Param("Price", "1111") } };
 
-            var map3 = new Map()
-            {
-                Order = 1,
-                Node = node3,
-                NodeId = node3.Id,
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
-            map2.Children.Add(map3);
+            var elelment2 = new Element("Instructor") { Params = new List<Param> { new Param("Discount", "10") } };
 
-            var map4 = new Map()
-            {
-                Order = 1,
-                Node = node4,
-                NodeId = node4.Id,
-                Parent = map2,
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
-            map2.Children.Add(map4);
-
-            var map5 = new Map()
-            {
-                Order = 1,
-                Node = node5,
-                NodeId = node5.Id,
-                Parent = map1,
-                Created = DateTimeOffset.Now,
-                Modified = DateTimeOffset.Now
-            };
-            map1.Children.Add(map5);
+            var elelment3 = new Element("Lesson") { Params = new List<Param> { new Param("During", "6") } };
 
 
-            var db = new ApplicationContext();
+            var structure1 = new Structure(elelment1);
+            structure1.Params.Add(new Param("Added", "Added Value"));
 
-            db.Structure.Add(map1);
+            var structure2 = new Structure(elelment2);
+            structure2.Children.Add(new Structure(elelment3));
+            var structureDecorator = new StructureParamsDecorator(structure2);
+            structureDecorator.Params.Add(new Param("Decor", "It's"));
 
-            //db.SaveChanges();
+            structure1.Children.Add(structureDecorator);
+            structure1.Children.Add(structure2);
+
 
 
             Console.WriteLine("Hello World!");

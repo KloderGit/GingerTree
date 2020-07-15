@@ -1,0 +1,54 @@
+﻿<Window x:Class="Wpf.GingerTree.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.GingerTree"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1062">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="73*"/>
+            <RowDefinition Height="361*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="717*"/>
+            <ColumnDefinition Width="83*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Height="30" Width="141" Click="Button_Click" Grid.Row="1"/>
+        <TextBox Name="Kld" HorizontalAlignment="Left" Margin="36,23,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Height="31"/>
+        <ListBox x:Name="lst"  Margin="10,50,633,0" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontSize="16" Text="{Binding Path=Title}" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text="Все мероприятия" TextWrapping="Wrap" Margin="164,24,504,321" Grid.Row="1"/>
+        <TreeView x:Name="treeView1" Margin="337,50,303,10" Grid.Row="1">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Item.Title}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <TextBlock HorizontalAlignment="Left" Margin="571,24,0,0" Grid.Row="1" Text="Все структуры" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="780,9,0,0" VerticalAlignment="Top" Height="31" Width="135" Click="Button_Click_1" Grid.Row="1"/>
+        <ListBox x:Name="Structrs" Grid.ColumnSpan="2" Margin="780,50,18,0" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontSize="16" Text="{Binding Path=Item.Title}" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="edt" Content="Edit" Grid.Column="1" HorizontalAlignment="Left" Margin="15,11,0,0" Grid.Row="1" VerticalAlignment="Top" Height="31" Width="77" Click="edt_Click"/>
+        <Button Content="Link" HorizontalAlignment="Left" Margin="337,12,0,0" Grid.Row="1" VerticalAlignment="Top" Height="28" Width="111" Click="Button_Click_2"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="453,12,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="89" Click="Button_Click_3"/>
+    </Grid>
+</Window>

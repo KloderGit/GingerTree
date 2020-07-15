@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="GingerTree.UI.Components.TopPanel.TopPanelComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GingerTree.UI.Components.TopPanel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FF703026">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox Grid.Column="1" 
+                  HorizontalAlignment="Center" VerticalAlignment="Center" 
+                  MaxWidth="120" MinWidth="50">
+            <StackPanel>
+                <TextBlock>jkhsdkjfhsdhdf</TextBlock>
+            </StackPanel>
+        </ComboBox>
+        <Ellipse Grid.Column="2" 
+                 HorizontalAlignment="Center" Height="25" Stroke="LightCyan" VerticalAlignment="Center" Width="25" Fill="#FFF0FFFC"/>
+
+    </Grid>
+</UserControl>

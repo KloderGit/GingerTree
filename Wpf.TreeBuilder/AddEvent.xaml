@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Wpf.TreeBuilder.AddEvent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf.TreeBuilder"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBox Name="TitleTextBlock" Text="123"  HorizontalAlignment="Left" Margin="26,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="486" Height="42" FontSize="22" TextChanged="TitleTextBlock_TextChanged"/>
+        <Button Name="AddParamButton" Content="AddParam" HorizontalAlignment="Left" Margin="26,107,0,0" VerticalAlignment="Top" Height="30" Width="96" Click="AddParamButton_Click"/>
+        <TextBox Name="Key" HorizontalAlignment="Left" Margin="154,107,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="30" FontSize="18"/>
+        <TextBox Name="Value" HorizontalAlignment="Left" Margin="336,107,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="30" FontSize="18"/>
+        <WrapPanel Name="ParamsWrapPanel" Margin="26,160,21,0"/>
+    </Grid>
+</UserControl>

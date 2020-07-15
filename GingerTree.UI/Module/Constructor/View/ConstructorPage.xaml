@@ -1,0 +1,67 @@
+﻿<Page x:Class="GingerTree.UI.Module.Constructor.View.ConstructorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GingerTree.UI.Module.Constructor.View"
+      xmlns:dd="urn:gong-wpf-dragdrop"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      x:Name="rootPage"
+      Title="ConstructorPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lslNodes" 
+                  dd:DragDrop.IsDragSource="True"                  
+                  dd:DragDrop.UseDefaultDragAdorner="True"
+                 ItemsSource="{Binding Nodes}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Title.Value}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TabControl Grid.Column="1" ItemsSource="{Binding EditedNodes}" Grid.RowSpan="2">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <local:EditedNodePanelComponent DataContext="{Binding}"/>
+                    <!--<Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" />
+                                <TextBlock Text="{Binding Status}" />
+                            <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}, Path=DataContext.Nodes.Count}" />
+                        </StackPanel>
+                        <TreeView Grid.Column="1" x:Name="treeView1" ItemsSource="{Binding Children}" >
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
+                                    <TextBlock Text="{Binding Title.Value}"/>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </Grid>-->
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+
+        <Button Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=lslNodes, Path=SelectedItem}" Content="Edit" HorizontalAlignment="Left" Margin="21,11,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Page>

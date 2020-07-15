@@ -1,0 +1,28 @@
+﻿<Window x:Class="Wpf.GingerTree.SelectElement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.GingerTree"
+        mc:Ignorable="d"
+        Title="SelectElement" Height="450" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="192*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Button IsDefault="True" Content="Ok" HorizontalAlignment="Left" Margin="305,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="71" Click="Button_Click"/>
+        <ListBox x:Name="Els" Margin="44,59,25,21">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontSize="16" Text="{Binding Path=Title}" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="44,19,0,0" VerticalAlignment="Top" Height="23" Width="83"/>
+
+    </Grid>
+</Window>

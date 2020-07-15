@@ -32,7 +32,7 @@ namespace Database.EntityFramework
         {
             modelBuilder.Entity<Node>(entity =>
             {
-                entity.ToTable("Items", "Domain");
+                entity.ToTable("Nodes", "Domain");
                 entity.Property(e => e.Created).HasColumnType("timestamp with time zone");
                 entity.Property(e => e.Modified).HasColumnType("timestamp with time zone");
             });
@@ -40,7 +40,7 @@ namespace Database.EntityFramework
 
             modelBuilder.Entity<Map>(entity =>
             {
-                entity.ToTable("Structure", "Domain");
+                entity.ToTable("Maps", "Domain");
                 entity.Property(e => e.Created).HasColumnType("timestamp with time zone");
                 entity.Property(e => e.Modified).HasColumnType("timestamp with time zone");
 
@@ -53,6 +53,23 @@ namespace Database.EntityFramework
                     .WithMany(p => p.Maps)
                     .HasForeignKey(d => d.NodeId);
                 entity.HasIndex(e => e.NodeId);
+            });
+
+            modelBuilder.Entity<Payload>(entity =>
+            {
+                entity.ToTable("Payloads", "Domain");
+                entity.Property(e => e.Created).HasColumnType("timestamp with time zone");
+                entity.Property(e => e.Modified).HasColumnType("timestamp with time zone");
+
+                entity.HasOne(d => d.Node)
+                    .WithMany(p => p.Payloads)
+                    .HasForeignKey(d => d.NodeId);
+                entity.HasIndex(e => e.NodeId);
+
+                entity.HasOne(d => d.Map)
+                    .WithMany(p => p.Payloads)
+                    .HasForeignKey(d => d.MapId);
+                entity.HasIndex(e => e.MapId);
             });
         }
     }
